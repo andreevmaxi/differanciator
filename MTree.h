@@ -373,7 +373,14 @@ bool MBinaryTree_t::DeleteNode(MNode_Binar_t* DelNode, MNode_Binar_t** LeftSubTr
                 }
             else
                 {
-                fprintf(LDot, "%d [shape=record, label=\"{NodePointer:  | %x} | {ParentPointer: | %x} | {Mode: | %d} | {Left: | Right:} | {%x | %x}\",style=\"filled\"];\n", NowNode, NowNode, NowNode->Parent, NowNode->Mode, NowNode->Left, NowNode->Right);
+                if(NowNode->Mode == VAR)
+                    {
+                    fprintf(LDot, "%d [shape=record, label=\"{NodePointer:  | %x} | {ParentPointer: | %x} | {data: | %c} | {Left: | Right:} | {%x | %x}\",style=\"filled\"];\n", NowNode, NowNode, NowNode->Parent, *(char*)NowNode->data, NowNode->Left, NowNode->Right);
+                    }
+                else
+                    {
+                    fprintf(LDot, "%d [shape=record, label=\"{NodePointer:  | %x} | {ParentPointer: | %x} | {Mode: | %d} | {Left: | Right:} | {%x | %x}\",style=\"filled\"];\n", NowNode, NowNode, NowNode->Parent, NowNode->Mode, NowNode->Left, NowNode->Right);
+                    }
                 }
             if(NowNode->Left != (MNode_Binar_t*)0)
                 {

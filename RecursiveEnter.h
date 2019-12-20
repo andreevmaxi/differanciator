@@ -8,42 +8,42 @@ namespace MBT_r //MaxBinaryTree_read
     {
     int RecursRead(MNode_Binar_t* root, char* buffer);
 
-    int Bracket(MNode_Binar_t* NowNode, char** buffer, char NowPath);
+    int Bracket(MNode_Binar_t* NowNode, char** buffer, char NowPath, int* TreeSize);
     // 'f' - first(root) path
     // 'r' - right path
     // 'l' - left path
 
-    int Functions(MNode_Binar_t* NowNode, char** buffer);
+    int Functions(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int PlusMinus(MNode_Binar_t* NowNode, char** buffer);
+    int PlusMinus(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int MultiplyDiv(MNode_Binar_t* NowNode, char** buffer);
+    int MultiplyDiv(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int Pow(MNode_Binar_t* NowNode, char** buffer);
+    int Pow(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int ParseMain(MNode_Binar_t* NowNode, char** buffer);
+    int ParseMain(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int Xes(MNode_Binar_t* NowNode, char** buffer);
+    int Xes(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int Number(MNode_Binar_t* NowNode, char** buffer);
+    int Number(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int SinCos(MNode_Binar_t* NowNode, char** buffer);
+    int SinCos(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int TgCtg(MNode_Binar_t* NowNode, char** buffer);
+    int TgCtg(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int ArcSinCos(MNode_Binar_t* NowNode, char** buffer);
+    int ArcSinCos(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int Exponent(MNode_Binar_t* NowNode, char** buffer);
+    int Exponent(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int NaturalLog(MNode_Binar_t* NowNode, char** buffer);
+    int NaturalLog(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int ParseMain(MNode_Binar_t* NowNode, char** buffer);
+    int ParseMain(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
-    int Number(MNode_Binar_t* NowNode, char** buffer);
+    int Number(MNode_Binar_t* NowNode, char** buffer, int* TreeSize);
 
     bool SpaceEater(char** buffer);
 
-    bool PlusNode(MNode_Binar_t* Parnt, bool IsRight);
+    bool PlusNode(MNode_Binar_t* Parnt, bool IsRight, int* TreeSize);
     }
 
 int MBT_r::RecursRead(MNode_Binar_t* root, char* buffer)
@@ -55,19 +55,17 @@ int MBT_r::RecursRead(MNode_Binar_t* root, char* buffer)
     while(*buffer != '\0')
         {
         MBT_r::SpaceEater(&buffer);
-        TreeSize += MBT_r::PlusMinus(root->Right->Right, &buffer);
+        TreeSize += MBT_r::PlusMinus(root->Right->Right, &buffer, &TreeSize);
         }
 
     return TreeSize;
     }
 
-int MBT_r::PlusMinus(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::PlusMinus(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
     printf("pkusr: %s \"apdasfasf\n\n", *buffer);
     MBT_r::SpaceEater(buffer);
-    int TreeSize = 0;
-    TreeSize += MBT_r::MultiplyDiv(NowNode, buffer);
-
+    NowNode = MBT_r::MultiplyDiv(NowNode, buffer, TreeSize);
 
     MBT_r::SpaceEater(buffer);
     while(**buffer == '+' || **buffer == '-')
@@ -94,22 +92,21 @@ int MBT_r::PlusMinus(MNode_Binar_t* NowNode, char** buffer)
             {
             TmpNode->Mode = SUB;
             }
-        ++TreeSize;
-        MBT_r::PlusNode(TmpNode, 1);
+        ++*TreeSize;
+        MBT_r::PlusNode(TmpNode, 1, TreeSize);
         NowNode = TmpNode->Right;
-        ++TreeSize;
-        TreeSize += MBT_r::MultiplyDiv(NowNode, buffer);
+        ++*TreeSize;
+        TreeSize += MBT_r::MultiplyDiv(NowNode, buffer, TreeSize);
 
         }
-    return TreeSize;
+    return NowNode;
     }
 
-int MBT_r::MultiplyDiv(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::MultiplyDiv(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
     printf("mulr: %s \"apdasfasf\n\n", *buffer);
     MBT_r::SpaceEater(buffer);
-    int TreeSize = 0;
-    TreeSize += MBT_r::Pow(NowNode, buffer);
+    TreeSize += MBT_r::Pow(NowNode, buffer, TreeSize);
 
     MBT_r::SpaceEater(buffer);
     while(**buffer == '*' || **buffer == '/')
@@ -137,23 +134,23 @@ int MBT_r::MultiplyDiv(MNode_Binar_t* NowNode, char** buffer)
             {
             TmpNode->Mode = DIV;
             }
-        ++TreeSize;
+        ++*TreeSize;
         MBT_r::PlusNode(TmpNode, 1);
         NowNode = TmpNode->Right;
-        ++TreeSize;
-        TreeSize += MBT_r::Pow(NowNode, buffer);
+        ++*TreeSize;
+        TreeSize += MBT_r::Pow(NowNode, buffer, TreeSize);
 
         }
 
     return TreeSize;
     }
 
-int MBT_r::Pow(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::Pow(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
     printf("powr: %s \"apdasfasf\n\n", *buffer);
     MBT_r::SpaceEater(buffer);
-    int TreeSize = 0;
-    TreeSize += MBT_r::ParseMain(NowNode, buffer);
+
+    TreeSize += MBT_r::ParseMain(NowNode, buffer, TreeSize);
 
 
     MBT_r::SpaceEater(buffer);
@@ -176,27 +173,26 @@ int MBT_r::Pow(MNode_Binar_t* NowNode, char** buffer)
         TmpNode->Left = NowNode;
         NowNode->Parent = TmpNode;
         TmpNode->Mode = POW;
-        ++TreeSize;
-        MBT_r::PlusNode(TmpNode, 1);
+        ++*TreeSize;
+        MBT_r::PlusNode(TmpNode, 1, TreeSize);
         NowNode = TmpNode->Right;
-        ++TreeSize;
-        TreeSize += MBT_r::Pow(NowNode, buffer);
+        ++*TreeSize;
+        TreeSize += MBT_r::Pow(NowNode, buffer, TreeSize);
         }
 
     return TreeSize;
     }
 
 
-int MBT_r::ParseMain(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::ParseMain(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
-    int TreeSize = 0;
     printf("parser: %s \"apdasfasf\n\n", *buffer);
     if(**buffer == '(')
         {
         ++*buffer;
         MBT_r::SpaceEater(buffer);
 
-        TreeSize += MBT_r::PlusMinus(NowNode, buffer);
+        TreeSize += MBT_r::PlusMinus(NowNode, buffer, TreeSize);
 
         MBT_r::SpaceEater(buffer);
         if(**buffer != ')')
@@ -222,9 +218,9 @@ int MBT_r::ParseMain(MNode_Binar_t* NowNode, char** buffer)
         TmpNode->Left = NowNode->Left;
         NowNode->Left = TmpNode;
         NowNode = TmpNode;
-        ++TreeSize;
+        ++*TreeSize;
 
-        TreeSize += MBT_r::PlusMinus(NowNode, buffer);
+        TreeSize += MBT_r::PlusMinus(NowNode, buffer, TreeSize);
 
         if(**buffer != '|')
             {
@@ -249,20 +245,18 @@ int MBT_r::ParseMain(MNode_Binar_t* NowNode, char** buffer)
         TmpNode->Left = NowNode->Left;
         NowNode->Left = TmpNode;
         NowNode = TmpNode;
-        ++TreeSize;
-        ++TreeSize;
+        ++*TreeSize;
+        ++*TreeSize;
         ++*buffer;
         MBT_r::SpaceEater(buffer);
         }
-    TreeSize += MBT_r::Functions(NowNode, buffer);
+    TreeSize += MBT_r::Functions(NowNode, buffer, TreeSize);
 
     return TreeSize;
     }
 
-int MBT_r::Functions(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::Functions(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
-    int TreeSize = 0;
-
     MBT_r::SpaceEater(buffer);
     bool flag = 1;
     printf("fync: %s \"apdasfasf\n\n", *buffer);
@@ -271,49 +265,57 @@ int MBT_r::Functions(MNode_Binar_t* NowNode, char** buffer)
         flag = 0;
 
         int TmpInt = 0;
-        if( (TmpInt = SinCos(NowNode, buffer)) != 0)
+        if( (TmpInt = SinCos(NowNode, buffer, TreeSize)) != 0)
             {
             TreeSize += TmpInt;
             TmpInt = 0;
             flag = 1;
             }
 
-        if( (TmpInt = TgCtg(NowNode, buffer)) != 0)
+        if( (TmpInt = TgCtg(NowNode, buffer, TreeSize)) != 0)
             {
             TreeSize += TmpInt;
             TmpInt = 0;
             flag = 1;
             }
 
-        if( (TmpInt = ArcSinCos(NowNode, buffer)) != 0)
+        if( (TmpInt = ArcSinCos(NowNode, buffer, TreeSize)) != 0)
             {
             TreeSize += TmpInt;
             TmpInt = 0;
             flag = 1;
             }
 
-        if( (TmpInt = NaturalLog(NowNode, buffer)) != 0)
+        if( (TmpInt = NaturalLog(NowNode, buffer, TreeSize)) != 0)
             {
             TreeSize += TmpInt;
             TmpInt = 0;
             flag = 1;
             }
 
-        if( (TmpInt = Number(NowNode, buffer)) != 0)
+        if( (TmpInt = Number(NowNode, buffer, TreeSize)) != 0)
             {
             TreeSize += TmpInt;
             TmpInt = 0;
             flag = 1;
+            }
+
+        if((**buffer >= 'a' && **buffer <= 'z'))
+            {
+            free(NowNode->data);
+            NowNode->Mode = VAR;
+            NowNode->type = 'C';
+            NowNode->data = calloc(1, sizeof(char));
+            *(char*)NowNode->data = **buffer;
+            ++*buffer;
             }
         }
 
     return TreeSize;
     }
 
-int MBT_r::Number(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::Number(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
-    int TreeSize = 0;
-
     MBT_r::SpaceEater(buffer);
     double num  = 0;
 
@@ -351,18 +353,16 @@ int MBT_r::Number(MNode_Binar_t* NowNode, char** buffer)
     return TreeSize;
     }
 
-int MBT_r::NaturalLog(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::NaturalLog(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
-    int TreeSize = 0;
-
     char nl[3] = "ln";
     if(strcmp(*buffer, nl) == 0)
         {
         *buffer += strlen(nl);
-        MBT_r::PlusNode(NowNode, 1);
+        MBT_r::PlusNode(NowNode, 1, TreeSize);
         NowNode->Mode = LN;
         NowNode = NowNode->Right;
-        MBT_r::ParseMain(NowNode, buffer);
+        MBT_r::ParseMain(NowNode, buffer, TreeSize);
         }
 
     MBT_r::SpaceEater(buffer);
@@ -370,28 +370,26 @@ int MBT_r::NaturalLog(MNode_Binar_t* NowNode, char** buffer)
     return TreeSize;
     }
 
-int MBT_r::ArcSinCos(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::ArcSinCos(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
-    int TreeSize = 0;
-
     char arcs[7] = "arcsin";
     char arcc[7] = "arccos";
     if(strcmp(*buffer, arcc) == 0)
         {
         *buffer += strlen(arcc);
-        MBT_r::PlusNode(NowNode, 1);
+        MBT_r::PlusNode(NowNode, 1, TreeSize);
         NowNode->Mode = ARCCOS;
         NowNode = NowNode->Right;
-        MBT_r::ParseMain(NowNode, buffer);
+        MBT_r::ParseMain(NowNode, buffer, TreeSize);
         }
 
     if(strcmp(*buffer, arcs) == 0)
         {
         *buffer += strlen(arcs);
-        MBT_r::PlusNode(NowNode, 1);
+        MBT_r::PlusNode(NowNode, 1, TreeSize);
         NowNode->Mode = ARCSIN;
         NowNode = NowNode->Right;
-        MBT_r::ParseMain(NowNode, buffer);
+        MBT_r::ParseMain(NowNode, buffer, TreeSize);
         }
 
     MBT_r::SpaceEater(buffer);
@@ -399,28 +397,26 @@ int MBT_r::ArcSinCos(MNode_Binar_t* NowNode, char** buffer)
     return TreeSize;
     }
 
-int MBT_r::SinCos(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::SinCos(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
-    int TreeSize = 0;
-
     char s[4] = "sin";
     char c[4] = "cos";
     if(strcmp(*buffer, c) == 0)
         {
         *buffer += strlen(c);
-        MBT_r::PlusNode(NowNode, 1);
+        MBT_r::PlusNode(NowNode, 1, TreeSize);
         NowNode->Mode = COS;
         NowNode = NowNode->Right;
-        MBT_r::ParseMain(NowNode, buffer);
+        MBT_r::ParseMain(NowNode, buffer, TreeSize);
         }
 
     if(strcmp(*buffer, s) == 0)
         {
         *buffer += strlen(s);
-        MBT_r::PlusNode(NowNode, 1);
+        MBT_r::PlusNode(NowNode, 1, TreeSize);
         NowNode->Mode = SIN;
         NowNode = NowNode->Right;
-        MBT_r::ParseMain(NowNode, buffer);
+        MBT_r::ParseMain(NowNode, buffer, TreeSize);
         }
 
     MBT_r::SpaceEater(buffer);
@@ -428,28 +424,26 @@ int MBT_r::SinCos(MNode_Binar_t* NowNode, char** buffer)
     return TreeSize;
     }
 
-int MBT_r::TgCtg(MNode_Binar_t* NowNode, char** buffer)
+MNode_Binar_t* MBT_r::TgCtg(MNode_Binar_t* NowNode, char** buffer, int* TreeSize)
     {
-    int TreeSize = 0;
-
     char t[3] = "tg";
     char c[4] = "ctg";
     if(strcmp(*buffer, c) == 0)
         {
         *buffer += strlen(c);
-        MBT_r::PlusNode(NowNode, 1);
+        MBT_r::PlusNode(NowNode, 1, TreeSize);
         NowNode->Mode = CTG;
         NowNode = NowNode->Right;
-        MBT_r::ParseMain(NowNode, buffer);
+        MBT_r::ParseMain(NowNode, buffer, TreeSize);
         }
 
     if(strcmp(*buffer, t) == 0)
         {
         *buffer += strlen(t);
-        MBT_r::PlusNode(NowNode, 1);
+        MBT_r::PlusNode(NowNode, 1, TreeSize);
         NowNode->Mode = TG;
         NowNode = NowNode->Right;
-        MBT_r::ParseMain(NowNode, buffer);
+        MBT_r::ParseMain(NowNode, buffer, TreeSize);
         }
 
     MBT_r::SpaceEater(buffer);

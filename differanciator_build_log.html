@@ -1,0 +1,122 @@
+<html>
+<head>
+<title>differanciator build log</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body>
+<tt>
+Build started on: <u>20-12-2019 at 06:15.10</u><br />
+Build ended on: <u>20-12-2019 at 06:15.13</u><p />
+<b>-------------- Build: Debug in differanciator (compiler: GNU GCC Compiler - Strict + Fast (SINGLE FILES ONLY))---------------</b><br />
+mingw32-g++.exe "C:\Users\MI Pro-15\Documents\GitHub\differanciator\main.cpp" -o bin\Debug\differanciator.exe -mconsole  -Wall -fexceptions  -g  -Wshadow -Winit-self -Wredundant-decls -Wcast-align -Wundef -Wfloat-equal -Winline -Wunreachable-code -Wmissing-declarations -Wmissing-include-dirs -Wswitch-enum -Wswitch-default -Weffc++ -Wmain -Wextra -Wall -g -pipe -fexceptions -Wcast-qual -Wconversion -Wctor-dtor-privacy -Wempty-body -Wformat-security -Wformat=2 -Wignored-qualifiers -Wlogical-op -Wmissing-field-initializers -Wnon-virtual-dtor -Woverloaded-virtual -Wpointer-arith -Wsign-promo -Wstack-usage=8192 -Wstrict-aliasing -Wstrict-null-sentinel -Wtype-limits -Wwrite-strings -D_DEBUG -D_EJUDGE_CLIENT_SIDE -D_EJC -D_VORONEZH<br />
+In file included from C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h:5:0,<br />
+                 from C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:12,<br />
+                 from C:\Users\MI Pro-15\Documents\GitHub\differanciator\main.cpp:1:<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:5:8: warning: 'struct MNode_Binar_t' has pointer data members [-Weffc++]</font><br />
+ struct MNode_Binar_t<br />
+        ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:5:8: warning:   but does not override 'MNode_Binar_t(const MNode_Binar_t&amp;)' [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:5:8: warning:   or 'operator=(const MNode_Binar_t&amp;)' [-Weffc++]</font><br />
+C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h: In constructor 'MNode_Binar_t::MNode_Binar_t(char, MNode_Binar_t*)':<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:19:1: warning: 'MNode_Binar_t::type' should be initialized in the member initialization list [-Weffc++]</font><br />
+ MNode_Binar_t::MNode_Binar_t(char T, MNode_Binar_t* Parnt)<br />
+ ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:19:1: warning: 'MNode_Binar_t::Parent' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:19:1: warning: 'MNode_Binar_t::data' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:19:1: warning: 'MNode_Binar_t::Left' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:19:1: warning: 'MNode_Binar_t::Right' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:19:1: warning: 'MNode_Binar_t::Mode' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:23:10: warning: converting to non-pointer type 'int' from NULL [-Wconversion-null]</font><br />
+     Mode = NULL;<br />
+          ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\maks_node.h:24:11: warning: switch missing default case [-Wswitch-default]</font><br />
+     switch(type)<br />
+           ^<br />
+In file included from C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:12:0,<br />
+                 from C:\Users\MI Pro-15\Documents\GitHub\differanciator\main.cpp:1:<br />
+C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h: At global scope:<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h:40:56: warning: redundant redeclaration of 'int MBT_r::ParseMain(MNode_Binar_t*, char**)' in same scope [-Wredundant-decls]</font><br />
+     int ParseMain(MNode_Binar_t* NowNode, char** buffer);<br />
+                                                        ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h:24:9: warning: previous declaration of 'int MBT_r::ParseMain(MNode_Binar_t*, char**)' [-Wredundant-decls]</font><br />
+     int ParseMain(MNode_Binar_t* NowNode, char** buffer);<br />
+         ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h:42:53: warning: redundant redeclaration of 'int MBT_r::Number(MNode_Binar_t*, char**)' in same scope [-Wredundant-decls]</font><br />
+     int Number(MNode_Binar_t* NowNode, char** buffer);<br />
+                                                     ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h:28:9: warning: previous declaration of 'int MBT_r::Number(MNode_Binar_t*, char**)' [-Wredundant-decls]</font><br />
+     int Number(MNode_Binar_t* NowNode, char** buffer);<br />
+         ^<br />
+C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h: In function 'int MBT_r::Number(MNode_Binar_t*, char**)':<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\RecursiveEnter.h:322:60: warning: format '%x' expects argument of type 'unsigned int', but argument 2 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+     printf("buffer:%x %s \"apdasfasf\n\n", NowNode, *buffer);<br />
+                                                            ^<br />
+In file included from C:\Users\MI Pro-15\Documents\GitHub\differanciator\main.cpp:1:0:<br />
+C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h: At global scope:<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:27:8: warning: 'struct MBinaryTree_t' has pointer data members [-Weffc++]</font><br />
+ struct MBinaryTree_t<br />
+        ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:27:8: warning:   but does not override 'MBinaryTree_t(const MBinaryTree_t&amp;)' [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:27:8: warning:   or 'operator=(const MBinaryTree_t&amp;)' [-Weffc++]</font><br />
+In file included from C:\Users\MI Pro-15\Documents\GitHub\differanciator\main.cpp:1:0:<br />
+C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h: In constructor 'MBinaryTree_t::MBinaryTree_t(std::string)':<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:57:1: warning: 'MBinaryTree_t::NumOfDumps' should be initialized in the member initialization list [-Weffc++]</font><br />
+ MBinaryTree_t::MBinaryTree_t( std::string Name )<br />
+ ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:57:1: warning: 'MBinaryTree_t::TreeSize' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:57:1: warning: 'MBinaryTree_t::TreeName' should be initialized in the member initialization list [-Weffc++]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:57:1: warning: 'MBinaryTree_t::root' should be initialized in the member initialization list [-Weffc++]</font><br />
+C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h: In member function 'int MBinaryTree_t::PrintTree(char**, int*, MNode_Binar_t*, int)':<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:107:10: warning: unused variable 'IsPrintOk' [-Wunused-variable]</font><br />
+     bool IsPrintOk = 1;<br />
+          ^<br />
+C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h: In member function 'void MBinaryTree_t::TDUMP(int)':<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:318:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         while(tmp != std::string::npos)<br />
+                                   ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:325:35: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]</font><br />
+         while(tmp != std::string::npos)<br />
+                                   ^<br />
+In file included from C:\Users\MI Pro-15\Documents\GitHub\differanciator\main.cpp:1:0:<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:349:307: warning: format '%d' expects argument of type 'int', but argument 3 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+         fprintf(LDot, "%d [shape=record, label=\"{Number of tree nodes: | %d} | {NodePointer:  | %x} | {ParentPointer: | %x} | {Mode: | %d} | {Left: | Right:} | {%x | %x}\",style=\"filled\",fillcolor=\"orange\"];\n", NowNode, TreeSize, NowNode, NowNode-&gt;Parent, NowNode-&gt;Mode, NowNode-&gt;Left, NowNode-&gt;Right);<br />
+                                                                                                                                                                                                                                                                                                                   ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:349:307: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:349:307: warning: format '%x' expects argument of type 'unsigned int', but argument 6 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:349:307: warning: format '%x' expects argument of type 'unsigned int', but argument 8 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:349:307: warning: format '%x' expects argument of type 'unsigned int', but argument 9 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:357:95: warning: format '%d' expects argument of type 'int', but argument 3 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+                 fprintf(LDot, "%d-&gt;%d[dir=\"both\";style=\"bold\"];\n", NowNode, NowNode-&gt;Left);<br />
+                                                                                               ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:357:95: warning: format '%d' expects argument of type 'int', but argument 4 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:362:96: warning: format '%d' expects argument of type 'int', but argument 3 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+                 fprintf(LDot, "%d-&gt;%d[dir=\"both\";style=\"bold\"];\n", NowNode, NowNode-&gt;Right);<br />
+                                                                                                ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:362:96: warning: format '%d' expects argument of type 'int', but argument 4 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:372:264: warning: format '%d' expects argument of type 'int', but argument 3 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+                 fprintf(LDot, "%d [shape=record, label=\"{NodePointer:  | %x} | {ParentPointer: | %x} | {data: | %lf} | {Left: | Right:} | {%x | %x}\",style=\"filled\"];\n", NowNode, NowNode, NowNode-&gt;Parent, *(double*)NowNode-&gt;data, NowNode-&gt;Left, NowNode-&gt;Right);<br />
+                                                                                                                                                                                                                                                                        ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:372:264: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:372:264: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:372:264: warning: format '%x' expects argument of type 'unsigned int', but argument 7 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:372:264: warning: format '%x' expects argument of type 'unsigned int', but argument 8 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:376:253: warning: format '%d' expects argument of type 'int', but argument 3 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+                 fprintf(LDot, "%d [shape=record, label=\"{NodePointer:  | %x} | {ParentPointer: | %x} | {Mode: | %d} | {Left: | Right:} | {%x | %x}\",style=\"filled\"];\n", NowNode, NowNode, NowNode-&gt;Parent, NowNode-&gt;Mode, NowNode-&gt;Left, NowNode-&gt;Right);<br />
+                                                                                                                                                                                                                                                             ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:376:253: warning: format '%x' expects argument of type 'unsigned int', but argument 4 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:376:253: warning: format '%x' expects argument of type 'unsigned int', but argument 5 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:376:253: warning: format '%x' expects argument of type 'unsigned int', but argument 7 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:376:253: warning: format '%x' expects argument of type 'unsigned int', but argument 8 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:381:95: warning: format '%d' expects argument of type 'int', but argument 3 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+                 fprintf(LDot, "%d-&gt;%d[dir=\"both\";style=\"bold\"];\n", NowNode, NowNode-&gt;Left);<br />
+                                                                                               ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:381:95: warning: format '%d' expects argument of type 'int', but argument 4 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:386:96: warning: format '%d' expects argument of type 'int', but argument 3 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+                 fprintf(LDot, "%d-&gt;%d[dir=\"both\";style=\"bold\"];\n", NowNode, NowNode-&gt;Right);<br />
+                                                                                                ^<br />
+<font color="#0000ff">C:\Users\MI Pro-15\Documents\GitHub\differanciator\MTree.h:386:96: warning: format '%d' expects argument of type 'int', but argument 4 has type 'MNode_Binar_t*' [-Wformat=]</font><br />
+Output size is 562,37 KB<br />
+<font color="#0000ff">Process terminated with status 0 (0 minutes, 2 seconds)</font><br />
+<font color="#0000ff">0 errors, 49 warnings (0 minutes, 2 seconds)</font><br />
+</tt>
+</body>
+</html>
